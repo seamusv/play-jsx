@@ -2,12 +2,13 @@ package com.github.hexx
 
 import sbt._
 import sbt.Keys._
+import play.PlayAssetsCompiler
 
-object PlayJsxPlugin extends Plugin {
+object PlayJsxPlugin extends Plugin with PlayAssetsCompiler {
   val jsxEntryPoints = SettingKey[PathFinder]("play-jsx-entry-points")
   val jsxOptions = SettingKey[Seq[String]]("play-jsx-options")
 
-  val JsxCompiler = play.Project.AssetsCompiler("jsx",
+  val JsxCompiler = AssetsCompiler("jsx",
     (_ ** "*.jsx"),
     jsxEntryPoints,
     { (name, min) => name.replace(".jsx", if (min) ".min.js" else ".js") },

@@ -4,13 +4,15 @@ name := "play-jsx"
 
 organization := "com.github.hexx"
 
-version := "0.0.2"
+version := "0.0.3-SNAPSHOT"
 
-scalaVersion := "2.10.3"
+scalaVersion := "2.10.4"
 
 scalacOptions := Seq("-deprecation", "-unchecked")
 
-addSbtPlugin("com.typesafe.play" % "sbt-plugin" % "2.2.0")
+resolvers += "Typesafe snapshots" at "http://repo.typesafe.com/typesafe/snapshots/"
+
+addSbtPlugin("com.typesafe.play" % "sbt-plugin" % "2.3-SNAPSHOT")
 
 publishMavenStyle := true
 
